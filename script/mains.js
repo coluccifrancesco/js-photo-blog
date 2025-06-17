@@ -1,20 +1,34 @@
-// http://127.0.0.1:3000/index.html
+const postContEl = document.getElementById('post-container');
 
-// Milestone 2
-// Utilizzando Postman, testiamo una chiamata a questo endpoint:
-// https://lanciweb.github.io/demo/api/pictures/
-// Studiamo bene la risposta e i dati che ci fornisce iniziando a pensare a come poterli sfruttare.
+const response = fetch('https://lanciweb.github.io/demo/api/pictures/')
+.then(resp => resp.json())
+.then(data => {
+    console.log(data);
+    getData(data)    
+})
 
+function getData (data){
+    
+    let columnsMarkup = ''
+    
+    data.forEach(post => {
+        
+        console.log(post.title);
+        console.log(post.date);
+        console.log(post.url);
 
-// Milestone 3
-// Inseriamo un foglio JavaScript ed effettuiamo una chiamata AJAX all’API, 
-// sfruttando la risposta per generare dinamicamente in pagina una serie di foto!
+        const {title, date, url} = post;
 
-
-// Font utilizzati:
-// d ate: ‘Sometype Mono’, ‘monospace’; 
-
-
-// Bonus
-// rendi la pagina responsive, in modo che su mobile e tablet le foto si dispongano 
-// man mano una sotto l’altra ed il titolo abbia una dimensione adeguata
+        columnsMarkup +=
+        `<div class="col">
+            <div class="card">
+                <img src="./img/pin.svg" class="pin">
+                <img src="${url}" class="img">
+                <p>${title}, ${date}</p>
+            </div>
+        </div>`;
+    
+    });
+    
+    postContEl.innerHTML = columnsMarkup;
+}
