@@ -12,6 +12,19 @@
     --usually-white: #ffffff;
 }
 
+header{
+    background-color: var(--header-bg);
+    position: fixed;
+    width: 100%;
+    z-index: 20;
+    top: 0;
+}
+
+main{
+    margin-top: 180px;
+    margin-bottom: 50px;
+}
+
 body{
     min-width: 476px;
     background-image: url("./img/wall.png");
@@ -20,10 +33,6 @@ body{
 
 p{
     font-size: 16px;
-}
-
-header{
-    background-color: var(--header-bg);
 }
 
 h1{
