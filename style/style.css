@@ -10,7 +10,6 @@
     --card-font-colour: #BAAFB0;
     --alt-bg-main: #E09D5C;
     --usually-white: #ffffff;
-    --font-date: "Sometype Mono", monospace;
 }
 
 header{
@@ -32,7 +31,8 @@ main{
 }
 
 p{
-    font-size: 16px;
+    font-size: 12px;
+    font-family: "Sometype Mono", monospace;
 }
 
 h1{
@@ -74,8 +74,7 @@ h1{
     gap: 1rem;
 
     p{
-        width: 90%;
-        margin: 0 auto;
+        width: 85%;
         margin: 0 auto 20px auto;
     }
 }
