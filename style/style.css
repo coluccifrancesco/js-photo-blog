@@ -13,22 +13,21 @@
 }
 
 header{
-    background-color: var(--header-bg);
+    background-image: url("../img/wall.png");
+    background-size: contain;
     position: fixed;
     width: 100%;
     z-index: 20;
     top: 0;
+    min-width: 476px;
 }
 
 main{
-    margin-top: 180px;
-    margin-bottom: 50px;
-}
-
-body{
     min-width: 476px;
-    background-image: url("./img/wall.png");
-    background-color: var(--alt-bg-main);
+    padding-top: 180px;
+    padding-bottom: 50px;
+    background-image: url("../img/cork.png");
+    background-size: contain;
 }
 
 p{
