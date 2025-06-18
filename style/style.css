@@ -67,11 +67,18 @@ h1{
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
+    transition: 0.2s;
     
     position: relative;
     
     max-width: 285px;
     gap: 1rem;
+
+    &:hover{
+        rotate: 10deg;
+        box-shadow: 10px 5px 10px rgba(0, 0, 0, 0.45);
+    }
 
     p{
         width: 85%;
