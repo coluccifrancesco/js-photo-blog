@@ -1,4 +1,14 @@
+// Refs
 const postContEl = document.getElementById('post-container');
+
+// seleziono il container della modale
+const modalEl = document.getElementById('modal-cont');
+        
+// seleziono l'immagine nel modale
+const modalImgEl = document.getElementById('big-img');
+        
+// sleziono il bottone
+const btnBack = document.getElementById('canc');
 
 const response = fetch('https://lanciweb.github.io/demo/api/pictures/')
 .then(resp => resp.json())
@@ -35,14 +45,6 @@ function getData (data){
     showOverlay(data);
 }
 
-// seleziono il container della modale
-const modalEl = document.getElementById('modal-cont');
-        
-// seleziono l'immagine nel modale
-const modalImgEl = document.getElementById('big-img');
-        
-// sleziono il bottone
-const btnBack = document.getElementById('canc');
 
 
 function showOverlay(data){
