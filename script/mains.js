@@ -29,19 +29,48 @@ function getData (data){
         </div>`;
     
     });
-    
+
     postContEl.innerHTML = columnsMarkup;
+
+    showOverlay(data);
 }
 
+// seleziono il container della modale
+const modalEl = document.getElementById('modal-cont');
+        
+// seleziono l'immagine nel modale
+const modalImgEl = document.getElementById('big-img');
+        
+// sleziono il bottone
+const btnBack = document.getElementById('canc');
 
-// Milestone 2
-// Facciamo sparire l’overlay con l’aiuto di una classe CSS che imposti il display: none .
-// Dopodiché facciamo sì che cliccando una qualunque foto. L’overlay ricompaia.
-// Cliccando invece il button di chiusura, l’overlay scompare nuovamente.
 
+function showOverlay(data){
+    // seleziono la card
+    const cards = document.querySelectorAll('.card');
+        
+    // verifico gli elementi selezionati
+    console.log(cards);
+    console.log(modalEl);
+    console.log(modalImgEl);
+    console.log(btnBack);
 
+    cards.forEach((card) => {
+        card.addEventListener('click', () => {
+            console.log(card);
+    
+            const imgSrcUrl = card.querySelector('.img').src
+            console.log(imgSrcUrl);
+            
+            modalImgEl.src = imgSrcUrl;
 
-// Milestone 3
-// Inseriamo il pezzo di logica finale: quando una foto viene cliccata, dobbiamo fare 
-// in modo che sia proprio quella foto a essere mostrata all’interno dell’overlay.
-// Ci sono diversi modi di farlo, prova a sperimentare
+            // al click sulla card rimuovo la classe d-none da modalEl
+            modalEl.classList.remove("dNone");       
+        })
+    })
+
+    // do valore al bottone facendo ricaricare la pagina 
+    btnBack.addEventListener('click', () => {
+        modalEl.classList.add("dNone");  
+    })
+}
