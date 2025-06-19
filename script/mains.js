@@ -1,14 +1,16 @@
 // Refs
 const postContEl = document.getElementById('post-container');
-
-// seleziono il container della modale
+//   seleziono il container della modale
 const modalEl = document.getElementById('modal-cont');
-        
-// seleziono l'immagine nel modale
+//   seleziono l'immagine nel modale
 const modalImgEl = document.getElementById('big-img');
-        
-// sleziono il bottone
+//   sleziono il bottone
 const btnBack = document.getElementById('canc');
+
+console.log(postContEl);
+console.log(modalEl);
+console.log(modalImgEl);
+console.log(btnBack);
 
 const response = fetch('https://lanciweb.github.io/demo/api/pictures/')
 .then(resp => resp.json())
@@ -17,9 +19,10 @@ const response = fetch('https://lanciweb.github.io/demo/api/pictures/')
     getData(data)    
 })
 
+// Functions
 function getData (data){
     
-    let columnsMarkup = ''
+    let columnsMarkup = '';
     
     data.forEach(post => {
         
@@ -42,32 +45,27 @@ function getData (data){
 
     postContEl.innerHTML = columnsMarkup;
 
-    showOverlay(data);
+    showOverlay();
 }
 
-
-
-function showOverlay(data){
+function showOverlay(){
     // seleziono la card
     const cards = document.querySelectorAll('.card');
-        
-    // verifico gli elementi selezionati
     console.log(cards);
-    console.log(modalEl);
-    console.log(modalImgEl);
-    console.log(btnBack);
 
     cards.forEach((card) => {
         card.addEventListener('click', () => {
-            console.log(card);
     
+            // assegno al "url" dell'img una variabile
             const imgSrcUrl = card.querySelector('.img').src
             console.log(imgSrcUrl);
             
+            // alla variabile dell'immagine assegno il valore dell'url
             modalImgEl.src = imgSrcUrl;
 
             // al click sulla card rimuovo la classe d-none da modalEl
             modalEl.classList.remove("dNone");       
+        
         })
     })
 
